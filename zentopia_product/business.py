@@ -55,7 +55,7 @@ def delete_product(product)->bool:
     try:
         db.session.delete(product)
         db.session.commit()
-    except Exceptin as excinfo:
+    except Exception as excinfo:
         try:
             db.session.rollback()
         finally:

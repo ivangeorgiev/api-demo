@@ -2,5 +2,6 @@ flask
 flask-restplus
 flask-sqlalchemy
 pytest
+pytest-cov
 pytest-flask
 Werkzeug==0.16.1
