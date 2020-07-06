@@ -18,7 +18,7 @@ Application is implemented using Python and supports variety of architectures an
 
 This solution uses PaaS from the cloud provider, e.g. Azure. With this approach we focus on the implementation of the application logic. The infrastructure management is taken care of from the cloud provider.
 
-![](C:\Sandbox\Learn\Python\restplus\basic-api\docs\img\architecture-overview-PaaS.png)
+![PaaS based solution](docs/img/architecture-overview-PaaS.png)
 
 Here are some of the features, out-of-the-box
 
@@ -34,7 +34,7 @@ Here are some of the features, out-of-the-box
 
 To provide more infrastructure vendor independent solution, we could use docker containers.
 
-![](C:\Sandbox\Learn\Python\restplus\basic-api\docs\img\architecture-overview-Docker.png)
+![Docker based solution](docs/img/architecture-overview-Docker.png)
 
 To create complete solution this approach would require much more work on the infrastructure.
 
