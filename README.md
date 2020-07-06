@@ -10,6 +10,34 @@ Sample microservice API with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Py
 
 # Architecture Overview
 
+Application is implemented using Python and supports variety of architectures and topologies. For example we can deploy the application, using cloud platform-as-a-service-based solution or docker-based solution.
+
+
+
+## Platform-as-a-Service (PaaS) Based Solution
+
+This solution uses PaaS from the cloud provider, e.g. Azure. With this approach we focus on the implementation of the application logic. The infrastructure management is taken care of from the cloud provider.
+
+![](C:\Sandbox\Learn\Python\restplus\basic-api\docs\img\architecture-overview-PaaS.png)
+
+Here are some of the features, out-of-the-box
+
+* Auto scaling
+* Monitoring
+* Alerting
+* Diagnostics
+* Security
+* Authentication
+* CD integration with GitHub, Bitbucket, etc.
+
+## Docker Based Solution
+
+To provide more infrastructure vendor independent solution, we could use docker containers.
+
+![](C:\Sandbox\Learn\Python\restplus\basic-api\docs\img\architecture-overview-Docker.png)
+
+To create complete solution this approach would require much more work on the infrastructure.
+
 ## Packages
 
 Solution uses layered style with three layers:
