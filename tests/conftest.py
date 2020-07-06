@@ -5,6 +5,10 @@ from zentopia_product import Product
 
 @pytest.fixture(scope='function')
 def app():
+    import settings
+
+    settings.SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+    
     app = create_app()
 
     app.app_context().push()
