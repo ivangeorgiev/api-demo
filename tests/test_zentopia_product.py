@@ -1,3 +1,5 @@
+"""Test cases for Zentopia product business logic."""
+
 import pytest
 from zentopia_product import *
 # from zentopia_api.products import *

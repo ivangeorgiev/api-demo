@@ -1,7 +1,7 @@
 from flask import request
 from werkzeug.exceptions import BadRequest, NotFound
 from flask_restplus import Namespace, Resource, fields
-from ..products import *
+from zentopia_product import *
 
 ns = Namespace('product', 'Product related operations.', path='/product')
 

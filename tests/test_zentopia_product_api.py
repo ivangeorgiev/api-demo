@@ -1,6 +1,6 @@
 import operator
 import pytest
-from zentopia_api.products import *
+from zentopia_product import *
 
 def test_list_products_returns_empty_list(client):
     result = client.get('/product', follow_redirects=True)

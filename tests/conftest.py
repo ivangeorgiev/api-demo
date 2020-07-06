@@ -1,6 +1,7 @@
 import pytest
-from zentopia_api.app import create_app
-from zentopia_api.db import Product
+from zentopia_api import create_app
+from zentopia_product import Product
+# from zentopia_api.db import Product
 
 @pytest.fixture(scope='function')
 def app():

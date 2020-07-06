@@ -1,6 +1,6 @@
 import os
 
-SERVICES = ['api_demo.product']
+SERVICES = ['zentopia_product_api']
 
 # APPLICATION_SETTINGS = os.environ.get('APPLICATION_SETTINGS', 'com_limes.settings')
 

@@ -1,4 +1,5 @@
 
+import importlib
 from flask import Flask
 from flask_restplus import Api
 
@@ -6,7 +7,7 @@ def home():
     return "Hello world!"
 
 def create_app():
-    from .apis.product import ns as product_ns
+    # from zentopia_product_api import ns as product_ns
 
     app = Flask(__name__)
 
@@ -17,11 +18,13 @@ def create_app():
 
     app.add_url_rule('/', endpoint=None, view_func=home)
 
-    from .db import db
+    from zentopia.db import db
     db.init_app(app)
     app.db = db
 
-    api.add_namespace(product_ns)
+    for service_name in set(app.config['SERVICES']):
+        service_module = importlib.import_module(service_name)
+        api.add_namespace(service_module.ns)
 
     app.app_context().push()
     app.db.create_all()
