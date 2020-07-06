@@ -1,7 +1,7 @@
 flask
 flask-restplus
 flask-sqlalchemy
-pytest
-pytest-cov
-pytest-flask
+pytest==5.4.3
+pytest-cov==2.10.0
+pytest-flask==1.0.0
 Werkzeug==0.16.1

@@ -13,4 +13,4 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest
+  - pytest -v  --cov=zentopia --cov=zentopia_product --cov=zentopia_product_api --cov-report term
