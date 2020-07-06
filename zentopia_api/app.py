@@ -18,7 +18,7 @@ def create_app():
 
     app.add_url_rule('/', endpoint=None, view_func=home)
 
-    from zentopia.db import db
+    from zentopia import db
     db.init_app(app)
     app.db = db
 

@@ -3,7 +3,30 @@
 [![Build Status](https://travis-ci.com/ivangeorgiev/api-demo.svg?branch=master)](https://travis-ci.com/ivangeorgiev/api-demo)
 [![codecov](https://codecov.io/gh/ivangeorgiev/api-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/ivangeorgiev/api-demo)
 
-Build APIs with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Pytest
+Sample microservice API with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Pytest
+
+* Source code: https://github.com/ivangeorgiev/api-demo
+* Live Demo: https://msapidemo.azurewebsites.net/
+
+# Architecture Overview
+
+## Packages
+
+Solution uses layered style with three layers:
+
+* Core layer - provides database persistence, etc. core functionalities
+* Business Logic layer - contains decoupled packages for maintaining business objects.
+* API View layer - contains 
+  * Basic API package defines the REST API application. Activates and runs microservices, based on application configuration.
+  * Decoupled microservice packages. Each package defines API endpoints and resources. 
+
+![Package Diagram](docs/img/package-diagram.png)
+
+
+
+
+
+## Directory Structure
 
 
 
@@ -41,6 +64,8 @@ Build APIs with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Pytest
 ├─ wsgi.py
 └─ ...
 ```
+
+
 
 
 

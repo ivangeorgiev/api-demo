@@ -1,4 +1,4 @@
-from zentopia.db import db
+from zentopia import db
 import datetime
 
 class Product(db.Model):

@@ -1,7 +1,7 @@
 import pytest
 import http.client
 from flask_sqlalchemy import SQLAlchemy
-from zentopia.db import db
+from zentopia import db
 
 class BasicTestItem(db.Model):
     """Test table to be created and used in basic tests."""

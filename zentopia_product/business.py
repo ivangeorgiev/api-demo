@@ -1,4 +1,4 @@
-from zentopia.db import db
+from zentopia import db
 from zentopia_product.models import Product
 from typing import List
 
