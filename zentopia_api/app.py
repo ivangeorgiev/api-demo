@@ -11,6 +11,9 @@ def create_app():
 
     app = Flask(__name__)
 
+    from werkzeug.middleware.proxy_fix import ProxyFix
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
     api = Api(app, version='0.1', title='Zentopia API',
               description='Zentopia backend API')
 
