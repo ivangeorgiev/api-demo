@@ -6,7 +6,7 @@
 Sample microservice API with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Pytest
 
 * Source code: https://github.com/ivangeorgiev/api-demo
-* Live Demo: https://msapidemo.azurewebsites.net/
+* Live Demo: http://msapidemo.azurewebsites.net/
 
 # Architecture Overview
 
