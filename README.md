@@ -1,4 +1,7 @@
 # api-demo
+
+[![Build Status](https://travis-ci.com/ivangeorgiev/api-demo.svg?branch=master)](https://travis-ci.com/ivangeorgiev/api-demo)
+
 Build APIs with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Pytest
 
 
