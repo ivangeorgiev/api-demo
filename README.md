@@ -10,9 +10,15 @@ Sample microservice API with Python, Flask, Flask-Alchemy, Flask-RESTPlus and Py
 
 # Architecture Overview
 
-Application is implemented using Python and supports variety of architectures and topologies. For example we can deploy the application, using cloud platform-as-a-service-based solution or docker-based solution.
+Solution uses two tiers:
 
+* Application tier - implemented using Python
+* Persistence tier - implemented using relational database
+  * SQLite file-based for development
+  * SQLite in-memory for testing
+  * MySQL or Posgresql for production 
 
+Multiple infrastructure topologies are supported. For example we can deploy the application, using cloud platform-as-a-service-based solution or docker-based solution.
 
 ## Platform-as-a-Service (PaaS) Based Solution
 
@@ -38,6 +44,8 @@ To provide more infrastructure vendor independent solution, we could use docker 
 
 To create complete solution this approach would require much more work on the infrastructure.
 
+# Application Design
+
 ## Packages
 
 Solution uses layered style with three layers:
@@ -50,13 +58,45 @@ Solution uses layered style with three layers:
 
 ![Package Diagram](docs/img/package-diagram.png)
 
+Chosen approach allows for:
 
+* Scaling business logic (horizontal extensibility) - business packages can be added and maintained without any impact to the existing code base
+* Microservice scaling (horizontal extensibility) - each API package represents a microservices. 
+  * Microservices can be added and maintained independently.
+  * Microservices can use and expose logic from different business packages.
+* Deployment flexibility - each API instance can be configured to execute multiple microservices. 
+* Vertical extensibility by adding other layers, e.g. SOAP View layer.
 
+## Python Frameworks
 
+Application is implemented using Python.
+
+### Flask
+
+Flask is a lightweight web application framework. It enables agile, quick and easy development and can scale up to complex applications. Free, open source, active community, provides a lot of plugins and extensions. 
+
+Compared to Django is more lightweight and suited better for REST API. 
+
+### Flask-RESTPlus
+
+Adds some RESTful capabilities to Flask:
+
+* Defines namespaces which are ways of creating prefixes and structuring the code. This helps long-term maintenance and helps with the design when creating new endpoints. 
+* It has a full solution for parsing input parameters.
+* It has a serialization framework for the resulting objects - response marshalling.
+* It has Swagger API documentation support, automatically generates Swagger specification, self-documenting page and Swagger UI.
+
+### Flask-Alchemy
+
+Python flask plugin, wrapper around the popular Python's SQLAlchemy ORM.
+
+### Pytest
+
+Python testing framework. Plugin for Flask application integration. 
+
+Compared to other frameworks, e.g. unittest and nose - more flexibility, reusability. Considered more pythonic. Can generate coverage reports in HTML and XML formats.
 
 ## Directory Structure
-
-
 
 ```
 /
@@ -84,6 +124,8 @@ Solution uses layered style with three layers:
 |  ├─ test_zentopia_product.py
 |  └─ test_zentopia_product_api.py
 |
+├─ .gitignore
+├─ .travis.yml
 ├─ logging.conf
 ├─ README.md
 ├─ requirements.txt
@@ -95,9 +137,13 @@ Solution uses layered style with three layers:
 
 
 
+## Continuous Integration
+
+Travis is used for CI. Travis executes `pytest` test cases and generates coverage report which is uploaded to Codecov.io.
 
 
 
+# How To
 
 ## Create Virtual Environment
 
