@@ -12,4 +12,8 @@ install:
 
 # command to run tests
 script:
-  - pytest -v  --cov=zentopia --cov=zentopia_product --cov=zentopia_product_api --cov-report term
+  - pytest tests -vv --cov walk_replace --cov devopslib --cov-report html --cov-report term
+   # - pylint walk_replace
+  
+after_success:
+  - codecov # submit coverage
