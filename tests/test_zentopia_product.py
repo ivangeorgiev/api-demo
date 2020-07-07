@@ -86,14 +86,4 @@ def test_product_model_repr_returns_string_representation():
     assert expect == actual
 
 
-def test_delete_product_rollback_on_error(test_app):
-    db = test_app.db
-    product = get_product(1)
-    db.engine.dispose()
-    db.session.close()
-    # product.id = 'xxx'
-    delete_product(product)
-    get_product(1)
-    # delete_product(product)
-
     
