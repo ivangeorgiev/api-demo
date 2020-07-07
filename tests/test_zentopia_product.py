@@ -68,4 +68,32 @@ def test_list_products(test_app):
     actual_product = pl_sorted[0]
     assert actual_product.name == 'banana'
 
+def test_delete_product_raises_error_unsupported_type(test_app):
+    with pytest.raises(TypeError) as exc:
+        delete_product({})
+
+def test_product_model_asdict_returns_dictionary_with_values():
+    product = Product(name='pear', slug='pear01', price=100)
+    expect = { 'name':'pear', 'slug':'pear01', 'price':100}
+    actual = product.asDict()
+    assert isinstance(actual, dict)
+    assert expect == actual
+
+def test_product_model_repr_returns_string_representation():
+    product = Product(name='pear', slug='pear01', price=100)
+    actual = repr(product)
+    expect = "Product(name='pear', price=100, slug='pear01')"
+    assert expect == actual
+
+
+def test_delete_product_rollback_on_error(test_app):
+    db = test_app.db
+    product = get_product(1)
+    db.engine.dispose()
+    db.session.close()
+    # product.id = 'xxx'
+    delete_product(product)
+    get_product(1)
+    # delete_product(product)
+
     

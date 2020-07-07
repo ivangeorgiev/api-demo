@@ -47,10 +47,9 @@ def delete_product(product)->bool:
         id = product.id
     elif isinstance(product, int):
         id = product
+        product = get_product(id)
     else:
         raise TypeError('product must be int or Product not {}'.format(type(product)))
-
-    product = get_product(id)
 
     try:
         db.session.delete(product)
